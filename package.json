@@ -1,20 +1,16 @@
 {
   "name": "openapi-to-zod",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+	"description": "creates zod objects from openapi schema",
+  "main": "dist/index.js",
   "bin": {
-    "openapi-to-zod": "index.js"
+    "openapi-to-zod": "./dist/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx tsc --watch",
     "build": "npx tsc"
   },
-  "files": [
-    "index.js",
-    "utils"
-  ],
   "keywords": [],
   "author": "",
   "license": "ISC",

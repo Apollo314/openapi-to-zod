@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 import { OpenAPIV3 } from "openapi-types";
 import { componentSchemasParser } from "./parser/parser";
 import init from "./utils/init";
