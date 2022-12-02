@@ -2,7 +2,7 @@ const welcome = require("cli-welcome");
 const pkg = require("../../package.json");
 const unhandled = require("cli-handle-unhandled");
 
-export default ({ clear = true }) => {
+export default () => {
   unhandled();
   welcome({
     title: `openapi-to-zod`,
@@ -12,6 +12,6 @@ export default ({ clear = true }) => {
     bgColor: "#36BB09",
     color: "#000000",
     bold: true,
-    clear,
+    clear: false,
   });
 };

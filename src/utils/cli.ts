@@ -5,11 +5,13 @@ const flags = {
 	input: {
 		type: 'string',
 		alias: 'i',
+		desc: 'Either a url to a schema or path to local file',
 		isRequired: true
 	},
 	output: {
 		type: 'string',
 		alias: 'o',
+		desc: 'Output folder, files will be created under here',
 		isRequired: true
 	},
 	axiosConfig: {
@@ -17,33 +19,25 @@ const flags = {
 		isRequired: false,
 		desc: 'axios options as JSON'
 	},
-	debug: {
-		type: `boolean`,
-		default: false,
-		alias: `d`,
-		desc: `Print debug info`
-	},
 	version: {
 		type: `boolean`,
 		alias: `v`,
 		desc: `Print CLI version`
+	},
+	help: {
+		type: 'boolean',
+		alias: 'h',
+		desc: 'show options'
 	}
-};
-
-const commands = {
-	help: { desc: `Print help info` }
 };
 
 const helpText = meowHelp({
 	name: `openapi-to-zod`,
 	flags,
-	commands
 });
 
 const options = {
-	inferType: true,
-	description: false,
-	hardRejection: false,
+	description: "creates zod objects from given openapi schema",
 	flags
 };
 

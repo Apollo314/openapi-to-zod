@@ -1,17 +1,23 @@
 {
   "name": "openapi-to-zod",
-  "version": "0.0.2",
-	"description": "creates zod objects from openapi schema",
+  "version": "0.0.3",
+  "description": "creates zod objects from openapi schema",
   "main": "dist/index.js",
   "bin": {
     "openapi-to-zod": "./dist/index.js"
   },
-  "files": ["dist/**/*"],
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx tsc --watch",
     "build": "npx tsc",
-    "prepare" : "npm run build"
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Apollo314/openapi-to-zod.git"
   },
   "keywords": [],
   "author": "",
@@ -25,10 +31,12 @@
     "cli-handle-unhandled": "^1.1.1",
     "cli-meow-help": "^3.1.0",
     "cli-welcome": "^2.2.2",
+    "js-yaml": "^4.1.0",
     "json-schema-to-zod": "^0.5.0",
     "meow": "^9.0.0"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
     "@types/node": "^18.11.10",
     "openapi-types": "^12.0.2",
     "typescript": "^4.9.3"
