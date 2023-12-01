@@ -8,11 +8,11 @@ import log from "./utils/log";
 import path from "path";
 import * as fs from "node:fs/promises";
 import { existsSync } from "fs";
-import axios from 'axios'
-import yaml from 'js-yaml'
+import axios from "axios";
+import yaml from "js-yaml";
 
 (async () => {
-  init()
+  init();
   let data: OpenAPIV3.Document;
   if (
     cli.flags.input.startsWith("http://") ||
@@ -26,13 +26,16 @@ import yaml from 'js-yaml'
       data = res.data;
     }
   } else if (existsSync(cli.flags.input)) {
-    const rawData = await fs.readFile(cli.flags.input, 'utf-8')
-    data = yaml.load(rawData) as OpenAPIV3.Document
+    const rawData = await fs.readFile(cli.flags.input, "utf-8");
+    data = yaml.load(rawData) as OpenAPIV3.Document;
   } else {
-    log('The schema file you have given doesn\'t exist')
-    return
+    log("The schema file you have given doesn't exist");
+    return;
   }
-  const zodFileContents = await componentSchemasParser(data! || {});
+  const zodFileContents = await componentSchemasParser(
+    data! || {},
+    cli.flags.fileExt
+  );
   if (!existsSync(cli.flags.output)) {
     fs.mkdir(cli.flags.output, { recursive: true });
   }

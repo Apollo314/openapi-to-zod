@@ -1,6 +1,6 @@
 {
   "name": "openapi-to-zod",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "creates zod objects from openapi schema",
   "main": "dist/index.js",
   "bin": {
