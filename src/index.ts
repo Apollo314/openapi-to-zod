@@ -11,6 +11,10 @@ import { existsSync } from "fs";
 import axios from "axios";
 import yaml from "js-yaml";
 
+function file_template(zodObj: string): string {
+  return `import { z } from "zod";\n\nexport default ${zodObj};\n`;
+}
+
 (async () => {
   init();
   let data: OpenAPIV3.Document;
@@ -41,7 +45,7 @@ import yaml from "js-yaml";
   }
   zodFileContents.forEach(async ([name, fileContent]) => {
     const file = await fs.open(path.join(cli.flags.output, name), "w");
-    await file.write(fileContent);
+    await file.write(file_template(fileContent));
     await file.close();
   });
 })();
